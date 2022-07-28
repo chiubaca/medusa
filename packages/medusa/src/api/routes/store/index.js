@@ -15,6 +15,7 @@ import returnRoutes from "./returns"
 import shippingOptionRoutes from "./shipping-options"
 import swapRoutes from "./swaps"
 import variantRoutes from "./variants"
+import { parseCorsOrigins } from "../../../utils"
 
 const route = Router()
 
@@ -24,7 +25,7 @@ export default (app, container, config) => {
   const storeCors = config.store_cors || ""
   route.use(
     cors({
-      origin: storeCors.split(","),
+      origin: parseCorsOrigins(storeCors),
       credentials: true,
     })
   )
