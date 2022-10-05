@@ -80,42 +80,42 @@ export default async (req, res) => {
     while (inProgress) {
       switch (idempotencyKey.recovery_point) {
         case "started": {
-          await manager.transaction(async (transactionManager) => {
-            const { key, error } = await idempotencyKeyService
-              .withTransaction(transactionManager)
-              .workStage(
-                idempotencyKey.idempotency_key,
-                async (stageManager) => {
-                  await cartService
-                    .withTransaction(stageManager)
-                    .setPaymentSessions(id)
+          await manager
+            .transaction(async (transactionManager) => {
+              const { key, error } = await idempotencyKeyService
+                .withTransaction(transactionManager)
+                .workStage(
+                  idempotencyKey.idempotency_key,
+                  async (stageManager) => {
+                    await cartService
+                      .withTransaction(stageManager)
+                      .setPaymentSessions(id)
 
-                  const cart = await cartService
-                    .withTransaction(stageManager)
-                    .retrieve(id, {
-                      select: defaultStoreCartFields,
-                      relations: defaultStoreCartRelations,
+                    const cart = await cartService
+                      .withTransaction(stageManager)
+                      .retrieve(id, {
+                        select: defaultStoreCartFields,
+                        relations: defaultStoreCartRelations,
+                      })
+
+                    const data = await decorateLineItemsWithTotals(cart, req, {
+                      force_taxes: false,
+                      transactionManager: stageManager,
                     })
 
-                  const data = await decorateLineItemsWithTotals(cart, req, {
-                    force_taxes: false,
-                    transactionManager: stageManager,
-                  })
-
-                  return {
-                    response_code: 200,
-                    response_body: { cart: data },
+                    return {
+                      response_code: 200,
+                      response_body: { cart: data },
+                    }
                   }
-                }
-              )
+                )
 
-            if (error) {
-              inProgress = false
-              err = error
-            } else {
               idempotencyKey = key
-            }
-          })
+            })
+            .catch((e) => {
+              inProgress = false
+              err = e
+            })
           break
         }
 
