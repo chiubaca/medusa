@@ -22,7 +22,7 @@ Base abstract entity for all entities
 
 #### Defined in
 
-medusa/dist/models/payment-session.d.ts:18
+medusa/dist/models/payment-session.d.ts:19
 
 ___
 
@@ -101,6 +101,16 @@ ___
 #### Defined in
 
 medusa/dist/models/payment-session.d.ts:14
+
+___
+
+### payment\_authorized\_at
+
+• **payment\_authorized\_at**: `Date`
+
+#### Defined in
+
+medusa/dist/models/payment-session.d.ts:18
 
 ___
 
