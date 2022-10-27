@@ -1,16 +1,20 @@
-# Class: NoteService
+# Class: DiscountConditionService
+
+Provides layer to manipulate discount conditions.
+
+**`Implements`**
 
 ## Hierarchy
 
 - `TransactionBaseService`
 
-  ↳ **`NoteService`**
+  ↳ **`DiscountConditionService`**
 
 ## Constructors
 
 ### constructor
 
-• **new NoteService**(`__namedParameters`)
+• **new DiscountConditionService**(`__namedParameters`)
 
 #### Parameters
 
@@ -24,7 +28,7 @@ TransactionBaseService.constructor
 
 #### Defined in
 
-[packages/medusa/src/services/note.ts:29](https://github.com/chiubaca/medusa/blob/c14b68fb7/packages/medusa/src/services/note.ts#L29)
+[packages/medusa/src/services/discount-condition.ts:37](https://github.com/chiubaca/medusa/blob/c14b68fb7/packages/medusa/src/services/discount-condition.ts#L37)
 
 ## Properties
 
@@ -56,13 +60,23 @@ TransactionBaseService.\_\_container\_\_
 
 ___
 
+### discountConditionRepository\_
+
+• `Protected` `Readonly` **discountConditionRepository\_**: typeof `DiscountConditionRepository`
+
+#### Defined in
+
+[packages/medusa/src/services/discount-condition.ts:31](https://github.com/chiubaca/medusa/blob/c14b68fb7/packages/medusa/src/services/discount-condition.ts#L31)
+
+___
+
 ### eventBus\_
 
 • `Protected` `Readonly` **eventBus\_**: [`EventBusService`](EventBusService.md)
 
 #### Defined in
 
-[packages/medusa/src/services/note.ts:27](https://github.com/chiubaca/medusa/blob/c14b68fb7/packages/medusa/src/services/note.ts#L27)
+[packages/medusa/src/services/discount-condition.ts:32](https://github.com/chiubaca/medusa/blob/c14b68fb7/packages/medusa/src/services/discount-condition.ts#L32)
 
 ___
 
@@ -76,17 +90,7 @@ TransactionBaseService.manager\_
 
 #### Defined in
 
-[packages/medusa/src/services/note.ts:24](https://github.com/chiubaca/medusa/blob/c14b68fb7/packages/medusa/src/services/note.ts#L24)
-
-___
-
-### noteRepository\_
-
-• `Protected` `Readonly` **noteRepository\_**: typeof `NoteRepository`
-
-#### Defined in
-
-[packages/medusa/src/services/note.ts:26](https://github.com/chiubaca/medusa/blob/c14b68fb7/packages/medusa/src/services/note.ts#L26)
+[packages/medusa/src/services/discount-condition.ts:34](https://github.com/chiubaca/medusa/blob/c14b68fb7/packages/medusa/src/services/discount-condition.ts#L34)
 
 ___
 
@@ -100,25 +104,7 @@ TransactionBaseService.transactionManager\_
 
 #### Defined in
 
-[packages/medusa/src/services/note.ts:25](https://github.com/chiubaca/medusa/blob/c14b68fb7/packages/medusa/src/services/note.ts#L25)
-
-___
-
-### Events
-
-▪ `Static` `Readonly` **Events**: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `CREATED` | `string` |
-| `DELETED` | `string` |
-| `UPDATED` | `string` |
-
-#### Defined in
-
-[packages/medusa/src/services/note.ts:18](https://github.com/chiubaca/medusa/blob/c14b68fb7/packages/medusa/src/services/note.ts#L18)
+[packages/medusa/src/services/discount-condition.ts:35](https://github.com/chiubaca/medusa/blob/c14b68fb7/packages/medusa/src/services/discount-condition.ts#L35)
 
 ## Methods
 
@@ -161,43 +147,35 @@ TransactionBaseService.atomicPhase\_
 
 ___
 
-### create
+### delete
 
-▸ **create**(`data`, `config?`): `Promise`<`Note`\>
-
-Creates a note associated with a given author
+▸ **delete**(`discountConditionId`): `Promise`<`void` \| `DiscountCondition`\>
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `data` | `CreateNoteInput` | the note to create |
-| `config` | `Object` | any configurations if needed, including meta data |
-| `config.metadata` | `Record`<`string`, `unknown`\> | - |
+| Name | Type |
+| :------ | :------ |
+| `discountConditionId` | `string` |
 
 #### Returns
 
-`Promise`<`Note`\>
-
-resolves to the creation result
+`Promise`<`void` \| `DiscountCondition`\>
 
 #### Defined in
 
-[packages/medusa/src/services/note.ts:96](https://github.com/chiubaca/medusa/blob/c14b68fb7/packages/medusa/src/services/note.ts#L96)
+[packages/medusa/src/services/discount-condition.ts:213](https://github.com/chiubaca/medusa/blob/c14b68fb7/packages/medusa/src/services/discount-condition.ts#L213)
 
 ___
 
-### delete
+### removeResources
 
-▸ **delete**(`noteId`): `Promise`<`void`\>
-
-Deletes a given note
+▸ **removeResources**(`data`): `Promise`<`void`\>
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `noteId` | `string` | id of the note to delete |
+| Name | Type |
+| :------ | :------ |
+| `data` | `Omit`<`DiscountConditionInput`, ``"id"``\> & { `id`: `string`  } |
 
 #### Returns
 
@@ -205,57 +183,28 @@ Deletes a given note
 
 #### Defined in
 
-[packages/medusa/src/services/note.ts:154](https://github.com/chiubaca/medusa/blob/c14b68fb7/packages/medusa/src/services/note.ts#L154)
-
-___
-
-### list
-
-▸ **list**(`selector`, `config?`): `Promise`<`Note`[]\>
-
-Fetches all notes related to the given selector
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `selector` | `Selector`<`Note`\> | the query object for find |
-| `config` | `FindConfig`<`Note`\> | the configuration used to find the objects. contains relations, skip, and take. |
-
-#### Returns
-
-`Promise`<`Note`[]\>
-
-notes related to the given search.
-
-#### Defined in
-
-[packages/medusa/src/services/note.ts:75](https://github.com/chiubaca/medusa/blob/c14b68fb7/packages/medusa/src/services/note.ts#L75)
+[packages/medusa/src/services/discount-condition.ts:181](https://github.com/chiubaca/medusa/blob/c14b68fb7/packages/medusa/src/services/discount-condition.ts#L181)
 
 ___
 
 ### retrieve
 
-▸ **retrieve**(`id`, `config?`): `Promise`<`Note`\>
-
-Retrieves a specific note.
+▸ **retrieve**(`conditionId`, `config?`): `Promise`<`DiscountCondition`\>
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `id` | `string` | the id of the note to retrieve. |
-| `config` | `FindConfig`<`Note`\> | any options needed to query for the result. |
+| Name | Type |
+| :------ | :------ |
+| `conditionId` | `string` |
+| `config?` | `FindConfig`<`DiscountCondition`\> |
 
 #### Returns
 
-`Promise`<`Note`\>
-
-which resolves to the requested note.
+`Promise`<`DiscountCondition`\>
 
 #### Defined in
 
-[packages/medusa/src/services/note.ts:47](https://github.com/chiubaca/medusa/blob/c14b68fb7/packages/medusa/src/services/note.ts#L47)
+[packages/medusa/src/services/discount-condition.ts:49](https://github.com/chiubaca/medusa/blob/c14b68fb7/packages/medusa/src/services/discount-condition.ts#L49)
 
 ___
 
@@ -283,34 +232,30 @@ TransactionBaseService.shouldRetryTransaction\_
 
 ___
 
-### update
+### upsertCondition
 
-▸ **update**(`noteId`, `value`): `Promise`<`Note`\>
-
-Updates a given note with a new value
+▸ **upsertCondition**(`data`, `overrideExisting?`): `Promise`<(`DiscountConditionCustomerGroup` \| `DiscountConditionProduct` \| `DiscountConditionProductCollection` \| `DiscountConditionProductTag` \| `DiscountConditionProductType`)[]\>
 
 #### Parameters
 
-| Name | Type | Description |
+| Name | Type | Default value |
 | :------ | :------ | :------ |
-| `noteId` | `string` | the id of the note to update |
-| `value` | `string` | the new value |
+| `data` | `DiscountConditionInput` | `undefined` |
+| `overrideExisting` | `boolean` | `true` |
 
 #### Returns
 
-`Promise`<`Note`\>
-
-resolves to the updated element
+`Promise`<(`DiscountConditionCustomerGroup` \| `DiscountConditionProduct` \| `DiscountConditionProductCollection` \| `DiscountConditionProductTag` \| `DiscountConditionProductType`)[]\>
 
 #### Defined in
 
-[packages/medusa/src/services/note.ts:132](https://github.com/chiubaca/medusa/blob/c14b68fb7/packages/medusa/src/services/note.ts#L132)
+[packages/medusa/src/services/discount-condition.ts:109](https://github.com/chiubaca/medusa/blob/c14b68fb7/packages/medusa/src/services/discount-condition.ts#L109)
 
 ___
 
 ### withTransaction
 
-▸ **withTransaction**(`transactionManager?`): [`NoteService`](NoteService.md)
+▸ **withTransaction**(`transactionManager?`): [`DiscountConditionService`](DiscountConditionService.md)
 
 #### Parameters
 
@@ -320,7 +265,7 @@ ___
 
 #### Returns
 
-[`NoteService`](NoteService.md)
+[`DiscountConditionService`](DiscountConditionService.md)
 
 #### Inherited from
 
@@ -329,3 +274,23 @@ TransactionBaseService.withTransaction
 #### Defined in
 
 [packages/medusa/src/interfaces/transaction-base-service.ts:13](https://github.com/chiubaca/medusa/blob/c14b68fb7/packages/medusa/src/interfaces/transaction-base-service.ts#L13)
+
+___
+
+### resolveConditionType\_
+
+▸ `Static` `Protected` **resolveConditionType_**(`data`): `undefined` \| { `resource_ids`: (`string` \| { `id`: `string`  })[] ; `type`: `DiscountConditionType`  }
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `data` | `DiscountConditionInput` |
+
+#### Returns
+
+`undefined` \| { `resource_ids`: (`string` \| { `id`: `string`  })[] ; `type`: `DiscountConditionType`  }
+
+#### Defined in
+
+[packages/medusa/src/services/discount-condition.ts:72](https://github.com/chiubaca/medusa/blob/c14b68fb7/packages/medusa/src/services/discount-condition.ts#L72)

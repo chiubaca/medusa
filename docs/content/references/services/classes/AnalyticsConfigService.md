@@ -1,16 +1,16 @@
-# Class: NoteService
+# Class: AnalyticsConfigService
 
 ## Hierarchy
 
 - `TransactionBaseService`
 
-  ↳ **`NoteService`**
+  ↳ **`AnalyticsConfigService`**
 
 ## Constructors
 
 ### constructor
 
-• **new NoteService**(`__namedParameters`)
+• **new AnalyticsConfigService**(`__namedParameters`)
 
 #### Parameters
 
@@ -24,7 +24,7 @@ TransactionBaseService.constructor
 
 #### Defined in
 
-[packages/medusa/src/services/note.ts:29](https://github.com/chiubaca/medusa/blob/c14b68fb7/packages/medusa/src/services/note.ts#L29)
+[packages/medusa/src/services/analytics-config.ts:24](https://github.com/chiubaca/medusa/blob/c14b68fb7/packages/medusa/src/services/analytics-config.ts#L24)
 
 ## Properties
 
@@ -56,13 +56,13 @@ TransactionBaseService.\_\_container\_\_
 
 ___
 
-### eventBus\_
+### analyticsConfigRepository\_
 
-• `Protected` `Readonly` **eventBus\_**: [`EventBusService`](EventBusService.md)
+• `Protected` `Readonly` **analyticsConfigRepository\_**: typeof `AnalyticsConfigRepository`
 
 #### Defined in
 
-[packages/medusa/src/services/note.ts:27](https://github.com/chiubaca/medusa/blob/c14b68fb7/packages/medusa/src/services/note.ts#L27)
+[packages/medusa/src/services/analytics-config.ts:21](https://github.com/chiubaca/medusa/blob/c14b68fb7/packages/medusa/src/services/analytics-config.ts#L21)
 
 ___
 
@@ -76,17 +76,7 @@ TransactionBaseService.manager\_
 
 #### Defined in
 
-[packages/medusa/src/services/note.ts:24](https://github.com/chiubaca/medusa/blob/c14b68fb7/packages/medusa/src/services/note.ts#L24)
-
-___
-
-### noteRepository\_
-
-• `Protected` `Readonly` **noteRepository\_**: typeof `NoteRepository`
-
-#### Defined in
-
-[packages/medusa/src/services/note.ts:26](https://github.com/chiubaca/medusa/blob/c14b68fb7/packages/medusa/src/services/note.ts#L26)
+[packages/medusa/src/services/analytics-config.ts:18](https://github.com/chiubaca/medusa/blob/c14b68fb7/packages/medusa/src/services/analytics-config.ts#L18)
 
 ___
 
@@ -100,25 +90,17 @@ TransactionBaseService.transactionManager\_
 
 #### Defined in
 
-[packages/medusa/src/services/note.ts:25](https://github.com/chiubaca/medusa/blob/c14b68fb7/packages/medusa/src/services/note.ts#L25)
+[packages/medusa/src/services/analytics-config.ts:19](https://github.com/chiubaca/medusa/blob/c14b68fb7/packages/medusa/src/services/analytics-config.ts#L19)
 
 ___
 
-### Events
+### userService\_
 
-▪ `Static` `Readonly` **Events**: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `CREATED` | `string` |
-| `DELETED` | `string` |
-| `UPDATED` | `string` |
+• `Protected` `Readonly` **userService\_**: [`UserService`](UserService.md)
 
 #### Defined in
 
-[packages/medusa/src/services/note.ts:18](https://github.com/chiubaca/medusa/blob/c14b68fb7/packages/medusa/src/services/note.ts#L18)
+[packages/medusa/src/services/analytics-config.ts:22](https://github.com/chiubaca/medusa/blob/c14b68fb7/packages/medusa/src/services/analytics-config.ts#L22)
 
 ## Methods
 
@@ -163,41 +145,38 @@ ___
 
 ### create
 
-▸ **create**(`data`, `config?`): `Promise`<`Note`\>
+▸ **create**(`userId`, `data`): `Promise`<`AnalyticsConfig`\>
 
-Creates a note associated with a given author
+Creates an analytics config.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `data` | `CreateNoteInput` | the note to create |
-| `config` | `Object` | any configurations if needed, including meta data |
-| `config.metadata` | `Record`<`string`, `unknown`\> | - |
+| Name | Type |
+| :------ | :------ |
+| `userId` | `string` |
+| `data` | `CreateAnalyticsConfig` |
 
 #### Returns
 
-`Promise`<`Note`\>
-
-resolves to the creation result
+`Promise`<`AnalyticsConfig`\>
 
 #### Defined in
 
-[packages/medusa/src/services/note.ts:96](https://github.com/chiubaca/medusa/blob/c14b68fb7/packages/medusa/src/services/note.ts#L96)
+[packages/medusa/src/services/analytics-config.ts:56](https://github.com/chiubaca/medusa/blob/c14b68fb7/packages/medusa/src/services/analytics-config.ts#L56)
 
 ___
 
 ### delete
 
-▸ **delete**(`noteId`): `Promise`<`void`\>
+▸ **delete**(`userId`): `Promise`<`void`\>
 
-Deletes a given note
+Deletes an analytics config.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `noteId` | `string` | id of the note to delete |
+| Name | Type |
+| :------ | :------ |
+| `userId` | `string` |
 
 #### Returns
 
@@ -205,57 +184,27 @@ Deletes a given note
 
 #### Defined in
 
-[packages/medusa/src/services/note.ts:154](https://github.com/chiubaca/medusa/blob/c14b68fb7/packages/medusa/src/services/note.ts#L154)
-
-___
-
-### list
-
-▸ **list**(`selector`, `config?`): `Promise`<`Note`[]\>
-
-Fetches all notes related to the given selector
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `selector` | `Selector`<`Note`\> | the query object for find |
-| `config` | `FindConfig`<`Note`\> | the configuration used to find the objects. contains relations, skip, and take. |
-
-#### Returns
-
-`Promise`<`Note`[]\>
-
-notes related to the given search.
-
-#### Defined in
-
-[packages/medusa/src/services/note.ts:75](https://github.com/chiubaca/medusa/blob/c14b68fb7/packages/medusa/src/services/note.ts#L75)
+[packages/medusa/src/services/analytics-config.ts:103](https://github.com/chiubaca/medusa/blob/c14b68fb7/packages/medusa/src/services/analytics-config.ts#L103)
 
 ___
 
 ### retrieve
 
-▸ **retrieve**(`id`, `config?`): `Promise`<`Note`\>
-
-Retrieves a specific note.
+▸ **retrieve**(`userId`): `Promise`<`AnalyticsConfig`\>
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `id` | `string` | the id of the note to retrieve. |
-| `config` | `FindConfig`<`Note`\> | any options needed to query for the result. |
+| Name | Type |
+| :------ | :------ |
+| `userId` | `string` |
 
 #### Returns
 
-`Promise`<`Note`\>
-
-which resolves to the requested note.
+`Promise`<`AnalyticsConfig`\>
 
 #### Defined in
 
-[packages/medusa/src/services/note.ts:47](https://github.com/chiubaca/medusa/blob/c14b68fb7/packages/medusa/src/services/note.ts#L47)
+[packages/medusa/src/services/analytics-config.ts:32](https://github.com/chiubaca/medusa/blob/c14b68fb7/packages/medusa/src/services/analytics-config.ts#L32)
 
 ___
 
@@ -285,32 +234,30 @@ ___
 
 ### update
 
-▸ **update**(`noteId`, `value`): `Promise`<`Note`\>
+▸ **update**(`userId`, `update`): `Promise`<`AnalyticsConfig`\>
 
-Updates a given note with a new value
+Updates an analytics config. If the config does not exist, it will be created instead.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `noteId` | `string` | the id of the note to update |
-| `value` | `string` | the new value |
+| Name | Type |
+| :------ | :------ |
+| `userId` | `string` |
+| `update` | `UpdateAnalyticsConfig` |
 
 #### Returns
 
-`Promise`<`Note`\>
-
-resolves to the updated element
+`Promise`<`AnalyticsConfig`\>
 
 #### Defined in
 
-[packages/medusa/src/services/note.ts:132](https://github.com/chiubaca/medusa/blob/c14b68fb7/packages/medusa/src/services/note.ts#L132)
+[packages/medusa/src/services/analytics-config.ts:72](https://github.com/chiubaca/medusa/blob/c14b68fb7/packages/medusa/src/services/analytics-config.ts#L72)
 
 ___
 
 ### withTransaction
 
-▸ **withTransaction**(`transactionManager?`): [`NoteService`](NoteService.md)
+▸ **withTransaction**(`transactionManager?`): [`AnalyticsConfigService`](AnalyticsConfigService.md)
 
 #### Parameters
 
@@ -320,7 +267,7 @@ ___
 
 #### Returns
 
-[`NoteService`](NoteService.md)
+[`AnalyticsConfigService`](AnalyticsConfigService.md)
 
 #### Inherited from
 
