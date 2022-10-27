@@ -24,7 +24,7 @@ TransactionBaseService.constructor
 
 #### Defined in
 
-[packages/medusa/src/services/payment-collection.ts:32](https://github.com/medusajs/medusa/blob/35df4962f/packages/medusa/src/services/payment-collection.ts#L32)
+[packages/medusa/src/services/payment-collection.ts:32](https://github.com/chiubaca/medusa/blob/c14b68fb7/packages/medusa/src/services/payment-collection.ts#L32)
 
 ## Properties
 
@@ -38,7 +38,7 @@ TransactionBaseService.\_\_configModule\_\_
 
 #### Defined in
 
-[packages/medusa/src/interfaces/transaction-base-service.ts:10](https://github.com/medusajs/medusa/blob/35df4962f/packages/medusa/src/interfaces/transaction-base-service.ts#L10)
+[packages/medusa/src/interfaces/transaction-base-service.ts:10](https://github.com/chiubaca/medusa/blob/c14b68fb7/packages/medusa/src/interfaces/transaction-base-service.ts#L10)
 
 ___
 
@@ -52,7 +52,7 @@ TransactionBaseService.\_\_container\_\_
 
 #### Defined in
 
-[packages/medusa/src/interfaces/transaction-base-service.ts:9](https://github.com/medusajs/medusa/blob/35df4962f/packages/medusa/src/interfaces/transaction-base-service.ts#L9)
+[packages/medusa/src/interfaces/transaction-base-service.ts:9](https://github.com/chiubaca/medusa/blob/c14b68fb7/packages/medusa/src/interfaces/transaction-base-service.ts#L9)
 
 ___
 
@@ -62,7 +62,7 @@ ___
 
 #### Defined in
 
-[packages/medusa/src/services/payment-collection.ts:28](https://github.com/medusajs/medusa/blob/35df4962f/packages/medusa/src/services/payment-collection.ts#L28)
+[packages/medusa/src/services/payment-collection.ts:28](https://github.com/chiubaca/medusa/blob/c14b68fb7/packages/medusa/src/services/payment-collection.ts#L28)
 
 ___
 
@@ -76,7 +76,7 @@ TransactionBaseService.manager\_
 
 #### Defined in
 
-[packages/medusa/src/services/payment-collection.ts:26](https://github.com/medusajs/medusa/blob/35df4962f/packages/medusa/src/services/payment-collection.ts#L26)
+[packages/medusa/src/services/payment-collection.ts:26](https://github.com/chiubaca/medusa/blob/c14b68fb7/packages/medusa/src/services/payment-collection.ts#L26)
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 #### Defined in
 
-[packages/medusa/src/services/payment-collection.ts:30](https://github.com/medusajs/medusa/blob/35df4962f/packages/medusa/src/services/payment-collection.ts#L30)
+[packages/medusa/src/services/payment-collection.ts:30](https://github.com/chiubaca/medusa/blob/c14b68fb7/packages/medusa/src/services/payment-collection.ts#L30)
 
 ___
 
@@ -100,7 +100,7 @@ TransactionBaseService.transactionManager\_
 
 #### Defined in
 
-[packages/medusa/src/services/payment-collection.ts:27](https://github.com/medusajs/medusa/blob/35df4962f/packages/medusa/src/services/payment-collection.ts#L27)
+[packages/medusa/src/services/payment-collection.ts:27](https://github.com/chiubaca/medusa/blob/c14b68fb7/packages/medusa/src/services/payment-collection.ts#L27)
 
 ___
 
@@ -118,7 +118,7 @@ ___
 
 #### Defined in
 
-[packages/medusa/src/services/payment-collection.ts:20](https://github.com/medusajs/medusa/blob/35df4962f/packages/medusa/src/services/payment-collection.ts#L20)
+[packages/medusa/src/services/payment-collection.ts:20](https://github.com/chiubaca/medusa/blob/c14b68fb7/packages/medusa/src/services/payment-collection.ts#L20)
 
 ## Methods
 
@@ -157,7 +157,7 @@ TransactionBaseService.atomicPhase\_
 
 #### Defined in
 
-[packages/medusa/src/interfaces/transaction-base-service.ts:50](https://github.com/medusajs/medusa/blob/35df4962f/packages/medusa/src/interfaces/transaction-base-service.ts#L50)
+[packages/medusa/src/interfaces/transaction-base-service.ts:50](https://github.com/chiubaca/medusa/blob/c14b68fb7/packages/medusa/src/interfaces/transaction-base-service.ts#L50)
 
 ___
 
@@ -177,7 +177,7 @@ ___
 
 #### Defined in
 
-[packages/medusa/src/services/payment-collection.ts:67](https://github.com/medusajs/medusa/blob/35df4962f/packages/medusa/src/services/payment-collection.ts#L67)
+[packages/medusa/src/services/payment-collection.ts:67](https://github.com/chiubaca/medusa/blob/c14b68fb7/packages/medusa/src/services/payment-collection.ts#L67)
 
 ___
 
@@ -197,7 +197,7 @@ ___
 
 #### Defined in
 
-[packages/medusa/src/services/payment-collection.ts:126](https://github.com/medusajs/medusa/blob/35df4962f/packages/medusa/src/services/payment-collection.ts#L126)
+[packages/medusa/src/services/payment-collection.ts:126](https://github.com/chiubaca/medusa/blob/c14b68fb7/packages/medusa/src/services/payment-collection.ts#L126)
 
 ___
 
@@ -218,7 +218,7 @@ ___
 
 #### Defined in
 
-[packages/medusa/src/services/payment-collection.ts:45](https://github.com/medusajs/medusa/blob/35df4962f/packages/medusa/src/services/payment-collection.ts#L45)
+[packages/medusa/src/services/payment-collection.ts:45](https://github.com/chiubaca/medusa/blob/c14b68fb7/packages/medusa/src/services/payment-collection.ts#L45)
 
 ___
 
@@ -242,7 +242,7 @@ TransactionBaseService.shouldRetryTransaction\_
 
 #### Defined in
 
-[packages/medusa/src/interfaces/transaction-base-service.ts:31](https://github.com/medusajs/medusa/blob/35df4962f/packages/medusa/src/interfaces/transaction-base-service.ts#L31)
+[packages/medusa/src/interfaces/transaction-base-service.ts:31](https://github.com/chiubaca/medusa/blob/c14b68fb7/packages/medusa/src/interfaces/transaction-base-service.ts#L31)
 
 ___
 
@@ -281,7 +281,7 @@ ___
 
 #### Defined in
 
-[packages/medusa/src/services/payment-collection.ts:97](https://github.com/medusajs/medusa/blob/35df4962f/packages/medusa/src/services/payment-collection.ts#L97)
+[packages/medusa/src/services/payment-collection.ts:97](https://github.com/chiubaca/medusa/blob/c14b68fb7/packages/medusa/src/services/payment-collection.ts#L97)
 
 ___
 
@@ -305,4 +305,4 @@ TransactionBaseService.withTransaction
 
 #### Defined in
 
-[packages/medusa/src/interfaces/transaction-base-service.ts:13](https://github.com/medusajs/medusa/blob/35df4962f/packages/medusa/src/interfaces/transaction-base-service.ts#L13)
+[packages/medusa/src/interfaces/transaction-base-service.ts:13](https://github.com/chiubaca/medusa/blob/c14b68fb7/packages/medusa/src/interfaces/transaction-base-service.ts#L13)
