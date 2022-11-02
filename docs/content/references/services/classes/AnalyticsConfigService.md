@@ -1,16 +1,16 @@
-# Class: CurrencyService
+# Class: AnalyticsConfigService
 
 ## Hierarchy
 
 - `TransactionBaseService`
 
-  ↳ **`CurrencyService`**
+  ↳ **`AnalyticsConfigService`**
 
 ## Constructors
 
 ### constructor
 
-• **new CurrencyService**(`__namedParameters`)
+• **new AnalyticsConfigService**(`__namedParameters`)
 
 #### Parameters
 
@@ -24,7 +24,7 @@ TransactionBaseService.constructor
 
 #### Defined in
 
-[packages/medusa/src/services/currency.ts:32](https://github.com/chiubaca/medusa/blob/5abd48900/packages/medusa/src/services/currency.ts#L32)
+[packages/medusa/src/services/analytics-config.ts:24](https://github.com/chiubaca/medusa/blob/5abd48900/packages/medusa/src/services/analytics-config.ts#L24)
 
 ## Properties
 
@@ -56,33 +56,13 @@ TransactionBaseService.\_\_container\_\_
 
 ___
 
-### currencyRepository\_
+### analyticsConfigRepository\_
 
-• `Protected` `Readonly` **currencyRepository\_**: typeof `CurrencyRepository`
-
-#### Defined in
-
-[packages/medusa/src/services/currency.ts:28](https://github.com/chiubaca/medusa/blob/5abd48900/packages/medusa/src/services/currency.ts#L28)
-
-___
-
-### eventBusService\_
-
-• `Protected` `Readonly` **eventBusService\_**: [`EventBusService`](EventBusService.md)
+• `Protected` `Readonly` **analyticsConfigRepository\_**: typeof `AnalyticsConfigRepository`
 
 #### Defined in
 
-[packages/medusa/src/services/currency.ts:29](https://github.com/chiubaca/medusa/blob/5abd48900/packages/medusa/src/services/currency.ts#L29)
-
-___
-
-### featureFlagRouter\_
-
-• `Protected` `Readonly` **featureFlagRouter\_**: `FlagRouter`
-
-#### Defined in
-
-[packages/medusa/src/services/currency.ts:30](https://github.com/chiubaca/medusa/blob/5abd48900/packages/medusa/src/services/currency.ts#L30)
+[packages/medusa/src/services/analytics-config.ts:21](https://github.com/chiubaca/medusa/blob/5abd48900/packages/medusa/src/services/analytics-config.ts#L21)
 
 ___
 
@@ -96,7 +76,7 @@ TransactionBaseService.manager\_
 
 #### Defined in
 
-[packages/medusa/src/services/currency.ts:25](https://github.com/chiubaca/medusa/blob/5abd48900/packages/medusa/src/services/currency.ts#L25)
+[packages/medusa/src/services/analytics-config.ts:18](https://github.com/chiubaca/medusa/blob/5abd48900/packages/medusa/src/services/analytics-config.ts#L18)
 
 ___
 
@@ -110,23 +90,17 @@ TransactionBaseService.transactionManager\_
 
 #### Defined in
 
-[packages/medusa/src/services/currency.ts:26](https://github.com/chiubaca/medusa/blob/5abd48900/packages/medusa/src/services/currency.ts#L26)
+[packages/medusa/src/services/analytics-config.ts:19](https://github.com/chiubaca/medusa/blob/5abd48900/packages/medusa/src/services/analytics-config.ts#L19)
 
 ___
 
-### Events
+### userService\_
 
-▪ `Static` `Readonly` **Events**: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `UPDATED` | `string` |
+• `Protected` `Readonly` **userService\_**: [`UserService`](UserService.md)
 
 #### Defined in
 
-[packages/medusa/src/services/currency.ts:21](https://github.com/chiubaca/medusa/blob/5abd48900/packages/medusa/src/services/currency.ts#L21)
+[packages/medusa/src/services/analytics-config.ts:22](https://github.com/chiubaca/medusa/blob/5abd48900/packages/medusa/src/services/analytics-config.ts#L22)
 
 ## Methods
 
@@ -169,55 +143,68 @@ TransactionBaseService.atomicPhase\_
 
 ___
 
-### listAndCount
+### create
 
-▸ **listAndCount**(`selector`, `config?`): `Promise`<[`Currency`[], `number`]\>
+▸ **create**(`userId`, `data`): `Promise`<`AnalyticsConfig`\>
 
-Lists currencies based on the provided parameters and includes the count of
-currencies that match the query.
+Creates an analytics config.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `selector` | `Selector`<`Currency`\> | an object that defines rules to filter currencies   by |
-| `config` | `FindConfig`<`Currency`\> | object that defines the scope for what should be   returned |
+| Name | Type |
+| :------ | :------ |
+| `userId` | `string` |
+| `data` | `CreateAnalyticsConfig` |
 
 #### Returns
 
-`Promise`<[`Currency`[], `number`]\>
-
-an array containing the currencies as
-  the first element and the total count of products that matches the query
-  as the second element.
+`Promise`<`AnalyticsConfig`\>
 
 #### Defined in
 
-[packages/medusa/src/services/currency.ts:81](https://github.com/chiubaca/medusa/blob/5abd48900/packages/medusa/src/services/currency.ts#L81)
+[packages/medusa/src/services/analytics-config.ts:56](https://github.com/chiubaca/medusa/blob/5abd48900/packages/medusa/src/services/analytics-config.ts#L56)
 
 ___
 
-### retrieveByCode
+### delete
 
-▸ **retrieveByCode**(`code`): `Promise`<`Currency`\>
+▸ **delete**(`userId`): `Promise`<`void`\>
 
-Return the currency
+Deletes an analytics config.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `code` | `string` | The code of the currency that must be retrieve |
+| Name | Type |
+| :------ | :------ |
+| `userId` | `string` |
 
 #### Returns
 
-`Promise`<`Currency`\>
-
-The currency
+`Promise`<`void`\>
 
 #### Defined in
 
-[packages/medusa/src/services/currency.ts:50](https://github.com/chiubaca/medusa/blob/5abd48900/packages/medusa/src/services/currency.ts#L50)
+[packages/medusa/src/services/analytics-config.ts:103](https://github.com/chiubaca/medusa/blob/5abd48900/packages/medusa/src/services/analytics-config.ts#L103)
+
+___
+
+### retrieve
+
+▸ **retrieve**(`userId`): `Promise`<`AnalyticsConfig`\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `userId` | `string` |
+
+#### Returns
+
+`Promise`<`AnalyticsConfig`\>
+
+#### Defined in
+
+[packages/medusa/src/services/analytics-config.ts:32](https://github.com/chiubaca/medusa/blob/5abd48900/packages/medusa/src/services/analytics-config.ts#L32)
 
 ___
 
@@ -247,32 +234,30 @@ ___
 
 ### update
 
-▸ **update**(`code`, `data`): `Promise`<`undefined` \| `Currency`\>
+▸ **update**(`userId`, `update`): `Promise`<`AnalyticsConfig`\>
 
-Update a currency
+Updates an analytics config. If the config does not exist, it will be created instead.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `code` | `string` | The code of the currency to update |
-| `data` | `UpdateCurrencyInput` | The data that must be updated on the currency |
+| Name | Type |
+| :------ | :------ |
+| `userId` | `string` |
+| `update` | `UpdateAnalyticsConfig` |
 
 #### Returns
 
-`Promise`<`undefined` \| `Currency`\>
-
-The updated currency
+`Promise`<`AnalyticsConfig`\>
 
 #### Defined in
 
-[packages/medusa/src/services/currency.ts:103](https://github.com/chiubaca/medusa/blob/5abd48900/packages/medusa/src/services/currency.ts#L103)
+[packages/medusa/src/services/analytics-config.ts:72](https://github.com/chiubaca/medusa/blob/5abd48900/packages/medusa/src/services/analytics-config.ts#L72)
 
 ___
 
 ### withTransaction
 
-▸ **withTransaction**(`transactionManager?`): [`CurrencyService`](CurrencyService.md)
+▸ **withTransaction**(`transactionManager?`): [`AnalyticsConfigService`](AnalyticsConfigService.md)
 
 #### Parameters
 
@@ -282,7 +267,7 @@ ___
 
 #### Returns
 
-[`CurrencyService`](CurrencyService.md)
+[`AnalyticsConfigService`](AnalyticsConfigService.md)
 
 #### Inherited from
 
