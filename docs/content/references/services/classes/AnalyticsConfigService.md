@@ -1,22 +1,22 @@
-# Class: ProductTypeService
+# Class: AnalyticsConfigService
 
 ## Hierarchy
 
 - `TransactionBaseService`
 
-  ↳ **`ProductTypeService`**
+  ↳ **`AnalyticsConfigService`**
 
 ## Constructors
 
 ### constructor
 
-• **new ProductTypeService**(`__namedParameters`)
+• **new AnalyticsConfigService**(`__namedParameters`)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `__namedParameters` | `Object` |
+| `__namedParameters` | `InjectedDependencies` |
 
 #### Overrides
 
@@ -24,7 +24,7 @@ TransactionBaseService.constructor
 
 #### Defined in
 
-[packages/medusa/src/services/product-type.ts:15](https://github.com/chiubaca/medusa/blob/4221909d6/packages/medusa/src/services/product-type.ts#L15)
+[packages/medusa/src/services/analytics-config.ts:24](https://github.com/chiubaca/medusa/blob/4221909d6/packages/medusa/src/services/analytics-config.ts#L24)
 
 ## Properties
 
@@ -56,6 +56,16 @@ TransactionBaseService.\_\_container\_\_
 
 ___
 
+### analyticsConfigRepository\_
+
+• `Protected` `Readonly` **analyticsConfigRepository\_**: typeof `AnalyticsConfigRepository`
+
+#### Defined in
+
+[packages/medusa/src/services/analytics-config.ts:21](https://github.com/chiubaca/medusa/blob/4221909d6/packages/medusa/src/services/analytics-config.ts#L21)
+
+___
+
 ### manager\_
 
 • `Protected` **manager\_**: `EntityManager`
@@ -66,7 +76,7 @@ TransactionBaseService.manager\_
 
 #### Defined in
 
-[packages/medusa/src/services/product-type.ts:10](https://github.com/chiubaca/medusa/blob/4221909d6/packages/medusa/src/services/product-type.ts#L10)
+[packages/medusa/src/services/analytics-config.ts:18](https://github.com/chiubaca/medusa/blob/4221909d6/packages/medusa/src/services/analytics-config.ts#L18)
 
 ___
 
@@ -80,17 +90,17 @@ TransactionBaseService.transactionManager\_
 
 #### Defined in
 
-[packages/medusa/src/services/product-type.ts:11](https://github.com/chiubaca/medusa/blob/4221909d6/packages/medusa/src/services/product-type.ts#L11)
+[packages/medusa/src/services/analytics-config.ts:19](https://github.com/chiubaca/medusa/blob/4221909d6/packages/medusa/src/services/analytics-config.ts#L19)
 
 ___
 
-### typeRepository\_
+### userService\_
 
-• `Protected` `Readonly` **typeRepository\_**: typeof `ProductTypeRepository`
+• `Protected` `Readonly` **userService\_**: [`UserService`](UserService.md)
 
 #### Defined in
 
-[packages/medusa/src/services/product-type.ts:13](https://github.com/chiubaca/medusa/blob/4221909d6/packages/medusa/src/services/product-type.ts#L13)
+[packages/medusa/src/services/analytics-config.ts:22](https://github.com/chiubaca/medusa/blob/4221909d6/packages/medusa/src/services/analytics-config.ts#L22)
 
 ## Methods
 
@@ -133,79 +143,68 @@ TransactionBaseService.atomicPhase\_
 
 ___
 
-### list
+### create
 
-▸ **list**(`selector?`, `config?`): `Promise`<`ProductType`[]\>
+▸ **create**(`userId`, `data`): `Promise`<`AnalyticsConfig`\>
 
-Lists product types
+Creates an analytics config.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `selector` | `Selector`<`ProductType`\> & { `discount_condition_id?`: `string` ; `q?`: `string`  } | the query object for find |
-| `config` | `FindConfig`<`ProductType`\> | the config to be used for find |
+| Name | Type |
+| :------ | :------ |
+| `userId` | `string` |
+| `data` | `CreateAnalyticsConfig` |
 
 #### Returns
 
-`Promise`<`ProductType`[]\>
-
-the result of the find operation
+`Promise`<`AnalyticsConfig`\>
 
 #### Defined in
 
-[packages/medusa/src/services/product-type.ts:55](https://github.com/chiubaca/medusa/blob/4221909d6/packages/medusa/src/services/product-type.ts#L55)
+[packages/medusa/src/services/analytics-config.ts:56](https://github.com/chiubaca/medusa/blob/4221909d6/packages/medusa/src/services/analytics-config.ts#L56)
 
 ___
 
-### listAndCount
+### delete
 
-▸ **listAndCount**(`selector?`, `config?`): `Promise`<[`ProductType`[], `number`]\>
+▸ **delete**(`userId`): `Promise`<`void`\>
 
-Lists product tags and adds count.
+Deletes an analytics config.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `selector` | `Selector`<`ProductType`\> & { `discount_condition_id?`: `string` ; `q?`: `string`  } | the query object for find |
-| `config` | `FindConfig`<`ProductType`\> | the config to be used for find |
+| Name | Type |
+| :------ | :------ |
+| `userId` | `string` |
 
 #### Returns
 
-`Promise`<[`ProductType`[], `number`]\>
-
-the result of the find operation
+`Promise`<`void`\>
 
 #### Defined in
 
-[packages/medusa/src/services/product-type.ts:72](https://github.com/chiubaca/medusa/blob/4221909d6/packages/medusa/src/services/product-type.ts#L72)
+[packages/medusa/src/services/analytics-config.ts:103](https://github.com/chiubaca/medusa/blob/4221909d6/packages/medusa/src/services/analytics-config.ts#L103)
 
 ___
 
 ### retrieve
 
-▸ **retrieve**(`id`, `config?`): `Promise`<`ProductType`\>
-
-Gets a product by id.
-Throws in case of DB Error and if product was not found.
+▸ **retrieve**(`userId`): `Promise`<`AnalyticsConfig`\>
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `id` | `string` | id of the product to get. |
-| `config` | `FindConfig`<`ProductType`\> | object that defines what should be included in the   query response |
+| Name | Type |
+| :------ | :------ |
+| `userId` | `string` |
 
 #### Returns
 
-`Promise`<`ProductType`\>
-
-the result of the find one operation.
+`Promise`<`AnalyticsConfig`\>
 
 #### Defined in
 
-[packages/medusa/src/services/product-type.ts:30](https://github.com/chiubaca/medusa/blob/4221909d6/packages/medusa/src/services/product-type.ts#L30)
+[packages/medusa/src/services/analytics-config.ts:32](https://github.com/chiubaca/medusa/blob/4221909d6/packages/medusa/src/services/analytics-config.ts#L32)
 
 ___
 
@@ -233,9 +232,32 @@ TransactionBaseService.shouldRetryTransaction\_
 
 ___
 
+### update
+
+▸ **update**(`userId`, `update`): `Promise`<`AnalyticsConfig`\>
+
+Updates an analytics config. If the config does not exist, it will be created instead.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `userId` | `string` |
+| `update` | `UpdateAnalyticsConfig` |
+
+#### Returns
+
+`Promise`<`AnalyticsConfig`\>
+
+#### Defined in
+
+[packages/medusa/src/services/analytics-config.ts:72](https://github.com/chiubaca/medusa/blob/4221909d6/packages/medusa/src/services/analytics-config.ts#L72)
+
+___
+
 ### withTransaction
 
-▸ **withTransaction**(`transactionManager?`): [`ProductTypeService`](ProductTypeService.md)
+▸ **withTransaction**(`transactionManager?`): [`AnalyticsConfigService`](AnalyticsConfigService.md)
 
 #### Parameters
 
@@ -245,7 +267,7 @@ ___
 
 #### Returns
 
-[`ProductTypeService`](ProductTypeService.md)
+[`AnalyticsConfigService`](AnalyticsConfigService.md)
 
 #### Inherited from
 
